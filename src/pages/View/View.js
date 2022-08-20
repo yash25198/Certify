@@ -13,12 +13,11 @@ function View() {
   const [numberOfCerts, setNumberOfCerts] = useState(0)
 
 
-  const hashClaim = (e) => {
-
-      claimCert(hash)
-        .then(response => {
-          console.log(response);
-          setNumberOfCerts(numberOfCerts+1)
+  const hashClaim = () => {
+    claimCert(hash)
+      .then(response => {
+        console.log(response);
+        fetchAllCerts()
       });
   }
 
@@ -41,41 +40,41 @@ function View() {
   // }, [])
 
   const onChangeForm = (e) => {
-      if (e.target.name === 'hash') {
-          let hasht = e.target.value;
+    if (e.target.name === 'hash') {
+      let hasht = e.target.value;
       setHash(hasht)
+    }
   }
-}
-  
-    
-    return (
-        <div className="App">
-          <h1 className="text-center" style={{"margin-top": "15%"}}>
-          </h1>
-          <div className="container mrgnbtm">
-            <div className="row">
-              <div className="col-md-8">
-                  <ClaimCert 
-                    hash={hash}
-                    onChangeForm={onChangeForm}
-                    hashClaim={hashClaim}
-                    >
-                  </ClaimCert>
-              </div>
-              <div className="col-md-4">
-                  <DisplayBoard
-                    numberOfCerts={numberOfCerts}
-                    getAllCerts={fetchAllCerts}
-                  >
-                  </DisplayBoard>
-              </div>
-            </div>
+
+
+  return (
+    <div className="App">
+      <h1 className="text-center" style={{ "marginTop": "15%" }}>
+      </h1>
+      <div className="container mrgnbtm">
+        <div className="row">
+          <div className="col-md-8">
+            <ClaimCert
+              hash={hash}
+              onChangeForm={onChangeForm}
+              hashClaim={hashClaim}
+            >
+            </ClaimCert>
           </div>
-          <div className="row mrgnbtm">
-            <Certs certs={certs}></Certs>
+          <div className="col-md-4">
+            <DisplayBoard
+              numberOfCerts={numberOfCerts}
+              getAllCerts={fetchAllCerts}
+            >
+            </DisplayBoard>
           </div>
         </div>
-    );
+      </div>
+      <div className="row mrgnbtm">
+        <Certs certs={certs}></Certs>
+      </div>
+    </div>
+  );
 }
 
 

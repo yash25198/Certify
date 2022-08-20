@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-const VerifyCert = ({onChangeForm, hashClaim }) => {
+const VerifyCert = ({onChangeForm, verifyCert }) => {
 
 
     return(
@@ -24,7 +24,7 @@ const VerifyCert = ({onChangeForm, hashClaim }) => {
                         </div>
                     </div>
                     <div className="btnHolder">
-                        <button type="button" onClick= {(e) => hashClaim()} className="getUsersButton">Verify</button>
+                        <button type="button" onClick= {(e) => verifyCert()} className="getUsersButton">Verify</button>
                     </div>
                 </form>
                 </div>

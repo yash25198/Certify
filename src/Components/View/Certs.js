@@ -2,7 +2,7 @@ import React from 'react'
 
 export const Certs = ({ certs }) => {
 
-    console.log('users length:::', certs.length)
+    console.log('Certificates length:::', certs.length)
     if (certs.length === 0) return null
 
     const UserRow = (cert, index) => {
@@ -10,7 +10,7 @@ export const Certs = ({ certs }) => {
         return (
             <tr key={index} className={index % 2 === 0 ? 'odd' : 'even'}>
                 <td>{index + 1}</td>
-                <td>{cert.hash}</td>
+                <td>{cert}</td>
             </tr>
         )
     }
