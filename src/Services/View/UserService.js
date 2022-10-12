@@ -40,8 +40,12 @@ export async function verifyCerti(address,hash) {
     }
 }
 export async function issueCert(data) {
+    try {
     console.log(data);
     const response = await Certify.issueCertificateToBeClaimed(data.addClaimer,data.hash,data.name,data.description);
     await response.wait();
-    console.log("Transaction Hash:"+response.hash);
+    console.log("Transaction Hash:"+response.hash);}
+    catch(error) {
+        window.alert("Transaction rejected");
+    }
 }
